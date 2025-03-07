@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astrologer Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f8f9fa;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 3px;
+    }
+    .message-bubble {
+        max-width: 80%;
+        word-wrap: break-word;
+    }
+</style>
+<body>
+
+<div class="min-h-screen flex">
+    <!-- Sidebar -->
+    <div class="w-64 bg-white shadow-lg hidden lg:block">
+        <div class="p-4">
+            <h1 class="text-2xl font-bold text-purple-600">AstroConsult</h1>
+        </div>
+        <nav class="mt-4">
+            <a href="#" class="flex items-center px-4 py-3 bg-purple-50 text-purple-600">
+                <i class="bi bi-chat-dots text-xl mr-3"></i>
+                <span>Chats</span>
+            </a>
+            <a href="#" class="flex items-center px-4 py-3 text-gray-600 hover:bg-purple-50 hover:text-purple-600">
+                <i class="bi bi-calendar text-xl mr-3"></i>
+                <span>Schedule</span>
+            </a>
+            <a href="#" class="flex items-center px-4 py-3 text-gray-600 hover:bg-purple-50 hover:text-purple-600">
+                <i class="bi bi-person text-xl mr-3"></i>
+                <span>Profile</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col">
+        <!-- Header -->
+        <header class="bg-white shadow-sm p-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <button class="lg:hidden mr-4">
+                        <i class="bi bi-list text-2xl"></i>
+                    </button>
+                    <h2 class="text-lg font-semibold">Chats</h2>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="relative">
+                        <label class="inline-flex items-center cursor-pointer">
+                            <input type="checkbox" value="" class="sr-only peer" checked>
+                            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-purple-600"></div>
+                            <span class="ms-3 text-sm font-medium text-gray-700">Online</span>
+                        </label>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=800" alt="Profile" class="w-8 h-8 rounded-full">
+                </div>
+            </div>
+        </header>
+
+        <!-- Chat Interface -->
+        <div class="flex-1 flex">
+            <!-- Chat List -->
+            <div class="w-72 bg-white border-r border-gray-200 hidden md:block">
+                <div class="p-4">
+                    <div class="relative">
+                        <input type="text" placeholder="Search chats..." class="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:border-purple-500">
+                        <i class="bi bi-search absolute left-3 top-3 text-gray-400"></i>
+                    </div>
+                </div>
+                <div class="custom-scrollbar overflow-y-auto h-[calc(100vh-12rem)]">
+                    <div class="p-3 hover:bg-gray-50 cursor-pointer border-b">
+                        <div class="flex items-center">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800" alt="User" class="w-10 h-10 rounded-full">
+                            <div class="ml-3">
+                                <h3 class="font-medium">Sarah Johnson</h3>
+                                <p class="text-sm text-gray-500">Career Reading</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- More chat items -->
+                </div>
+            </div>
+
+            <!-- Chat Window -->
+            <div class="flex-1 flex flex-col">
+                <!-- Chat Header -->
+                <div class="p-4 bg-white border-b border-gray-200">
+                    <div class="flex items-center">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800" alt="User" class="w-10 h-10 rounded-full">
+                        <div class="ml-3">
+                            <h3 class="font-medium">Sarah Johnson</h3>
+                            <p class="text-sm text-gray-500">Online</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Messages -->
+                <div class="flex-1 p-4 overflow-y-auto custom-scrollbar bg-gray-50">
+                    <div class="space-y-4">
+                        <div class="flex justify-start">
+                            <div class="bg-white rounded-lg p-3 shadow-sm message-bubble">
+                                <p>Hi, I'm interested in knowing about my career prospects for 2024.</p>
+                            </div>
+                        </div>
+                        <div class="flex justify-end">
+                            <div class="bg-purple-600 text-white rounded-lg p-3 shadow-sm message-bubble">
+                                <p>Hello Sarah! I'd be happy to help you with that. Let me check your chart first.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Responses -->
+                <div class="p-4 bg-white border-t border-gray-200">
+                    <div class="flex gap-2 mb-4 overflow-x-auto">
+                        <button class="px-4 py-2 bg-purple-100 text-purple-600 rounded-full text-sm whitespace-nowrap">
+                            ✨ Career Reading Template
+                        </button>
+                        <button class="px-4 py-2 bg-purple-100 text-purple-600 rounded-full text-sm whitespace-nowrap">
+                            🌟 AI Suggestion
+                        </button>
+                        <button class="px-4 py-2 bg-purple-100 text-purple-600 rounded-full text-sm whitespace-nowrap">
+                            💫 Saved Messages
+                        </button>
+                    </div>
+                    <div class="flex gap-2">
+                        <input type="text" placeholder="Type your message..." class="flex-1 p-3 border rounded-lg focus:outline-none focus:border-purple-500">
+                        <button class="p-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700">
+                            <i class="bi bi-send"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Toggle sidebar on mobile
+    const menuButton = document.querySelector('.bi-list').parentElement;
+    const sidebar = document.querySelector('.w-64');
+    
+    menuButton.addEventListener('click', () => {
+        sidebar.classList.toggle('hidden');
+    });
+
+    // Online/Offline toggle functionality
+    const onlineToggle = document.querySelector('input[type="checkbox"]');
+    onlineToggle.addEventListener('change', function() {
+        const status = this.checked ? 'Online' : 'Offline';
+        // Update status in UI
+        document.querySelector('.text-sm.font-medium').textContent = status;
+    });
+
+    // Quick response buttons functionality
+    const quickResponseButtons = document.querySelectorAll('.bg-purple-100');
+    quickResponseButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const messageInput = document.querySelector('input[type="text"]');
+            const buttonText = this.textContent.trim();
+            
+            // Simulate different responses based on button clicked
+            let message = '';
+            switch(buttonText) {
+                case '✨ Career Reading Template':
+                    message = "Based on your birth chart, I can see that your career house is...";
+                    break;
+                case '🌟 AI Suggestion':
+                    message = "AI suggests focusing on your Jupiter placement which indicates...";
+                    break;
+                case '💫 Saved Messages':
+                    message = "Here's my detailed analysis of your career prospects...";
+                    break;
+            }
+            messageInput.value = message;
+        });
+    });
+
+    // Send message functionality
+    const sendButton = document.querySelector('.bi-send').parentElement;
+    const messageInput = document.querySelector('input[type="text"]');
+    const messagesContainer = document.querySelector('.custom-scrollbar.overflow-y-auto');
+
+    sendButton.addEventListener('click', () => {
+        if (messageInput.value.trim() !== '') {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'flex justify-end';
+            messageDiv.innerHTML = `
+                <div class="bg-purple-600 text-white rounded-lg p-3 shadow-sm message-bubble">
+                    <p>${messageInput.value}</p>
+                </div>
+            `;
+            messagesContainer.appendChild(messageDiv);
+            messageInput.value = '';
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+    });
+
+    // Handle enter key in message input
+    messageInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            sendButton.click();
+        }
+    });
+});
+</script>
+
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
